@@ -50,6 +50,10 @@ button:disabled {
   margin-bottom: 22px;
 }
 
+.toolbar > * {
+  min-width: 0;
+}
+
 .eyebrow {
   color: #5c6b7a;
   font-size: 0.78rem;
@@ -91,6 +95,7 @@ h2 {
   gap: 18px;
   grid-template-columns: minmax(280px, 360px) 1fr;
   min-width: 0;
+  width: 100%;
 }
 
 .panel {
@@ -101,6 +106,7 @@ h2 {
   max-width: 100%;
   min-width: 0;
   padding: 18px;
+  width: 100%;
 }
 
 .panel-header {
@@ -109,6 +115,7 @@ h2 {
   gap: 12px;
   justify-content: space-between;
   margin-bottom: 16px;
+  min-width: 0;
 }
 
 .panel-header span {
@@ -119,6 +126,7 @@ h2 {
 .editor {
   display: grid;
   gap: 14px;
+  min-width: 0;
   position: sticky;
   top: 18px;
 }
@@ -129,6 +137,7 @@ label {
   font-size: 0.86rem;
   font-weight: 700;
   gap: 7px;
+  min-width: 0;
 }
 
 input,
@@ -296,6 +305,7 @@ tr:last-child td {
 
   .panel-header {
     align-items: flex-start;
+    flex-wrap: wrap;
   }
 
   .panel-header .secondary {
