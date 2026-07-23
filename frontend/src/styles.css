@@ -65,7 +65,7 @@ h2 {
 }
 
 h1 {
-  font-size: clamp(1.8rem, 5vw, 2.7rem);
+  font-size: 2.4rem;
 }
 
 h2 {
@@ -79,6 +79,8 @@ h2 {
   color: #2d4f73;
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
   font-size: 0.82rem;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   padding: 9px 12px;
 }
 
@@ -260,5 +262,129 @@ tr:last-child td {
 
   .pagination {
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-shell {
+    padding: 20px 12px 32px;
+  }
+
+  .toolbar {
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .api-chip {
+    display: block;
+    font-size: 0.75rem;
+    width: 100%;
+  }
+
+  .panel {
+    border-radius: 6px;
+    padding: 14px;
+  }
+
+  .panel-header {
+    align-items: flex-start;
+  }
+
+  .panel-header .secondary {
+    min-width: 84px;
+  }
+
+  .primary,
+  .search-row .secondary {
+    width: 100%;
+  }
+
+  .table-wrap {
+    border: 0;
+    overflow: visible;
+  }
+
+  table,
+  tbody {
+    display: block;
+    min-width: 0;
+    width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    background: #ffffff;
+    border: 1px solid #dce3ea;
+    border-radius: 6px;
+    display: block;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  tbody td {
+    border-bottom: 1px solid #e3e8ef;
+    display: block;
+    min-width: 0;
+    padding: 10px 12px;
+    overflow-wrap: anywhere;
+  }
+
+  tbody td::before {
+    color: #697989;
+    content: attr(data-label);
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
+  tbody td:last-child {
+    border-bottom: 0;
+  }
+
+  tbody .empty-row {
+    border-bottom: 0;
+    text-align: center;
+  }
+
+  tbody .empty-row::before {
+    content: none;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .actions::before {
+    grid-column: 1 / -1;
+  }
+
+  .actions button {
+    padding-inline: 8px;
+    width: 100%;
+  }
+
+  .pagination {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pagination span {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    text-align: center;
+  }
+
+  .pagination button {
+    width: 100%;
   }
 }

@@ -258,19 +258,19 @@ onMounted(loadProducts);
             </thead>
             <tbody>
               <tr v-if="loading">
-                <td colspan="4">Cargando productos...</td>
+                <td class="empty-row" colspan="4">Cargando productos...</td>
               </tr>
               <tr v-else-if="products.length === 0">
-                <td colspan="4">No hay productos para mostrar.</td>
+                <td class="empty-row" colspan="4">No hay productos para mostrar.</td>
               </tr>
               <tr v-for="product in products" v-else :key="product.id">
-                <td>
+                <td data-label="Nombre">
                   <strong>{{ product.name }}</strong>
                   <small>{{ product.description }}</small>
                 </td>
-                <td>{{ product.category?.join(', ') }}</td>
-                <td>${{ Number(product.price).toFixed(2) }}</td>
-                <td class="actions">
+                <td data-label="Categoria">{{ product.category?.join(', ') }}</td>
+                <td data-label="Precio">${{ Number(product.price).toFixed(2) }}</td>
+                <td class="actions" data-label="Acciones">
                   <button class="secondary" type="button" @click="editProduct(product)">Editar</button>
                   <button class="danger" type="button" @click="deleteProduct(product.name)">Eliminar</button>
                 </td>
