@@ -60,10 +60,11 @@ static string? NormalizePostgresConnectionString(string? connectionString)
     var username = userInfo.Length > 0 ? Uri.UnescapeDataString(userInfo[0]) : string.Empty;
     var password = userInfo.Length > 1 ? Uri.UnescapeDataString(userInfo[1]) : string.Empty;
     var database = uri.AbsolutePath.TrimStart('/');
+    var port = uri.IsDefaultPort ? 5432 : uri.Port;
     var parts = new List<string>
     {
         $"Host={uri.Host}",
-        $"Port={uri.Port}",
+        $"Port={port}",
         $"Database={database}",
         $"Username={username}",
         $"Password={password}"
