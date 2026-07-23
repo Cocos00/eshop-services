@@ -1,0 +1,52 @@
+services:
+  - type: keyvalue
+    name: eshop-redis-cache
+    plan: free
+    ipAllowList: []
+    maxmemoryPolicy: allkeys-lru
+
+  - type: web
+    name: eshop-catalog-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./src/Catalog.API/Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__Database
+        fromDatabase:
+          name: eshop-catalog-db
+          property: connectionString
+
+  - type: web
+    name: eshop-basket-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./src/Basket.API/Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__Database
+        fromDatabase:
+          name: eshop-basket-db
+          property: connectionString
+      - key: ConnectionStrings__Redis
+        fromService:
+          type: keyvalue
+          name: eshop-redis-cache
+          property: connectionString
+
+databases:
+  - name: eshop-catalog-db
+    databaseName: CatalogDb
+    user: catalog_user
+    plan: free
+
+  - name: eshop-basket-db
+    databaseName: BasketDb
+    user: basket_user
+    plan: free

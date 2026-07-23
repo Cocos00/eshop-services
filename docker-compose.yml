@@ -1,0 +1,11 @@
+services:
+  catalogdb:
+    image: postgres:15
+  basketdb:
+    image: postgres:15
+  distributedcache:
+    image: redis
+
+volumes:
+  postgres_catalog:
+  postgres_basket:

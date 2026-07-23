@@ -1,0 +1,3 @@
+C:\Microservices Net Core\eshop-services\src\Catalog.API\wwwroot\app.js
+C:\Microservices Net Core\eshop-services\src\Catalog.API\wwwroot\index.html
+C:\Microservices Net Core\eshop-services\src\Catalog.API\wwwroot\styles.css
