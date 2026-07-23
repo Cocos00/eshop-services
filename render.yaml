@@ -42,11 +42,11 @@ services:
 
 databases:
   - name: eshop-catalog-db
-    databaseName: CatalogDb
+    databaseName: catalogdb
     user: catalog_user
     plan: free
 
   - name: eshop-basket-db
-    databaseName: BasketDb
+    databaseName: basketdb
     user: basket_user
     plan: free
